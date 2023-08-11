@@ -20,8 +20,6 @@ import { AiOutlinePlus } from "react-icons/ai";
 import {useState} from 'react'
 const AdminProduct = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  const accessToken = localStorage.getItem('accessToken');
-  console.log(accessToken);
   const [
     deleteProduct,
     { isLoading: isDeleteLoading },
@@ -35,6 +33,12 @@ const AdminProduct = () => {
             content: "Product deleted!",
         });
         setRemoveLoadingMap((prevMap) => ({ ...prevMap, [id]: false }));
+    }).catch((error) => {
+      messageApi.open({
+        type: "success",
+        content: error.data.message,
+        
+    });
     })
   };
   const [removeLoadingMap, setRemoveLoadingMap] = useState<Record<number | string, boolean>>({});

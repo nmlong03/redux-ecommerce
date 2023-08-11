@@ -16,7 +16,9 @@ const EditProduct = () => {
   const { data: category } = useGetCategoryQuery();
   const [updateProduct] = useUpdateProductMutation();
   const {data: productData} = useGetProductByIdQuery(id || "");  
-const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  const productCategory = productData?.categoryId?._id;
+    
+const [selectedCategoryId, setSelectedCategoryId] = useState(productCategory);
 
 const handleCategoryChange = (value: string) => {
   setSelectedCategoryId(value);
@@ -32,6 +34,12 @@ useEffect(() => {
         type: "success",
         content: "Product updated"
       })
+    }).catch((error) => {
+      messageApi.open({
+        type: "success",
+        content: error.data.message,
+        
+    });
     })
     setTimeout(() => {
         navigate("/admin/product");
@@ -76,11 +84,14 @@ useEffect(() => {
           rules={[
             {
               required: true,
-              validator: (_, value) => {
+              validator: async (_, value) => {
                 if (!value) {
                   return Promise.reject("Please input your price!");
                 }
-                if (value < 1) {
+                if (isNaN(value)) {
+                  return Promise.reject("Price must be a number");
+                }
+                if (parseFloat(value) < 1) {
                   return Promise.reject("Price must be greater than 1");
                 }
                 return Promise.resolve();

@@ -1,23 +1,31 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { useSigninMutation } from "../../api/auth";
-
-
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-    const [signin, {isLoading: isLoadingSignIn}] = useSigninMutation()
-    const accessToken = localStorage.getItem('accessToken');
-    console.log(accessToken);
-    
-    
+  const [messageApi, contextHolder] = message.useMessage();
+  const navigate = useNavigate()
+    const [signin, {isLoading: isLoadingSignIn}] = useSigninMutation()    
     const onFinish = (values: any) => {
         signin(values).unwrap().then((data) => {
-            console.log(data);
+          localStorage.setItem('accessToken', data.accessToken);
+          localStorage.setItem('userId', data.user._id);
+          messageApi.open({
+            type: "success",
+            content: "Sign In successfully!",
+          });
+          setTimeout(() => {
+            navigate('/');
+            window.location.reload()
+        }, 2000);      
+      
+        }).catch((error) => {
+          messageApi.open({
+            type: "success",
+            content: error.data.message,
             
-            const token = localStorage.setItem('accessToken', data.accessToken);
-            const userId = localStorage.setItem('userId', data.user._id);
-
-            
-          })
+        });
+        })
     };
     
     const onFinishFailed = (errorInfo: any) => {
@@ -32,6 +40,7 @@ const SignIn = () => {
     };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+                  {contextHolder}
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="mx-auto h-10 w-auto"
@@ -84,10 +93,10 @@ const SignIn = () => {
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{" "}
           <a
-            href="#"
+            href="/signup"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
-            Start a 14 day free trial
+            SignUp
           </a>
         </p>
       </div>

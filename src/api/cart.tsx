@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-// import { pause } from '../untils/pause';
+import { pause } from '../untils/pause';
 const cartApi = createApi({
     reducerPath: 'cart',
     tagTypes: [`Cart`],
@@ -11,11 +11,11 @@ const cartApi = createApi({
                 headers.set('Authorization', 'Bearer xxx')
             }
             return headers;
+        },
+        fetchFn: async (...args) => {
+            await pause(1000);
+            return fetch(...args);
         }
-        // fetchFn: async (...args) => {
-        //     await pause(1000);
-        //     return fetch(...args);
-        // }
     }),
     endpoints: (builder) => ({
         addToCart: builder.mutation({

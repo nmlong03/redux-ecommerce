@@ -28,12 +28,12 @@ const AdminLayout = () => {
                         {
                             key: "1",
                             icon: <AiOutlineUser />,
-                            label: <Link to="/admin/dashboard">Thông kê</Link>,
+                            label: <Link to="/admin/dashboard">Dashboarh</Link>,
                         },
                         {
                             key: "2",
                             icon: <AiOutlineVideoCamera />,
-                            label: <Link to="/admin/product">Sản phẩm</Link>,
+                            label: <Link to="/admin/product">Product</Link>,
                         },
                     ]}
                 />

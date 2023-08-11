@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useDecrementCartMutation, useDeleteItemCartMutation, useGetCartQuery, useIncrementCartMutation } from "../../api/cart";
-// import { IProduct } from "../../interfaces/product";
-import { Skeleton, message, Button, Popconfirm, Spin } from "antd";
+import { Skeleton, message, Popconfirm, Spin } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import {AiFillDelete} from 'react-icons/ai'
 
 const Cart = () => {
   const userId = localStorage.getItem('userId');
-  console.log(userId);
   
   const { data: cart, isLoading } = useGetCartQuery(userId || "");
   const [messageApi, contextHolder] = message.useMessage();
@@ -18,10 +16,10 @@ const Cart = () => {
     useDeleteItemCartMutation();
   const [incrementCart] = useIncrementCartMutation();
   const [decrementCart] = useDecrementCartMutation();
-  const increment = (id) => {
+  const increment = (id: string) => {
     incrementCart(id)
   }
-  const decrement = (id) => {
+  const decrement = (id: string) => {
     decrementCart(id)
   }
   const confirm = (id: any) => {
@@ -46,7 +44,7 @@ const Cart = () => {
         <div className="w-3/4 bg-white px-10 py-10">
           <div className="flex justify-between border-b pb-8">
             <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-            <h2 className="font-semibold text-2xl">3 Items</h2>
+            <h2 className="font-semibold text-2xl">{cart?.length} Items</h2>
           </div>
           <div className="flex mt-10 mb-5">
             <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
@@ -142,7 +140,7 @@ const Cart = () => {
 
 
           <a
-            href="#"
+            href="/"
             className="flex font-semibold text-indigo-600 text-sm mt-10"
           >
             <svg

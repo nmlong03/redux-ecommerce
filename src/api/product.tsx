@@ -43,6 +43,9 @@ const productApi = createApi({
                 url: `/products`,
                 method: `POST`,
                 body: product,
+                headers: {
+                    'content-type': 'text/plain',
+                },
             }),
             invalidatesTags: ['Product']
 
@@ -51,7 +54,10 @@ const productApi = createApi({
             query: (product) => ({
                 url: `/products/${product._id}`,
                 method: `PUT`,
-                body: product
+                body: product,
+                headers: {
+                    'content-type': 'text/plain',
+                },
             }),
             invalidatesTags: ['Product']
         }),

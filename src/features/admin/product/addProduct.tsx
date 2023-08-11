@@ -23,7 +23,13 @@ const AddProduct = () => {
         form.resetFields();
         setTimeout(() => {
             navigate("/admin/product");
-        }, 3000);      });
+        }, 3000);      }).catch((error) => {
+          messageApi.open({
+            type: "success",
+            content: error.data.message,
+            
+        });
+        });
   };
 
   const onFinishFailed = (errorInfo: unknown) => {
@@ -60,11 +66,14 @@ const AddProduct = () => {
           rules={[
             {
               required: true,
-              validator: (_, value) => {
+              validator: async (_, value) => {
                 if (!value) {
                   return Promise.reject("Please input your price!");
                 }
-                if (value < 1) {
+                if (isNaN(value)) {
+                  return Promise.reject("Price must be a number");
+                }
+                if (parseFloat(value) < 1) {
                   return Promise.reject("Price must be greater than 1");
                 }
                 return Promise.resolve();
