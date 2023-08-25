@@ -4,15 +4,15 @@ import AdminLayout from "../layouts/adminLayout";
 import AdminProduct from "../features/admin/product";
 import AddProduct from "../features/admin/product/addProduct";
 import EditProduct from "../features/admin/product/editProduct";
-import ProductList from "../components/ProductList";
 import Cart from "../components/Cart";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import ProductDetail from "../components/ProductDetail";
+import HomePage from "../features/user/homepage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <BaseLayout />, children: [
-    {index: true, element: <ProductList />},
+    {index: true, element: <HomePage />},
     {path: "cart", element: <Cart />},
     {path: "signin", element: <SignIn />},
     {path: "signup", element: <SignUp />},

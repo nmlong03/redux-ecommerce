@@ -35,94 +35,203 @@ const ProductDetail = () => {
 
     return (
         <div>
-                  {contextHolder}
+            {contextHolder}
+            <nav className="mx-auto mt-4 max-w-[1200px] px-5">
+    <ul className="flex items-center">
+      <li className="cursor-pointer">
+        <a href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path
+              d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+            <path
+              d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <span className="mx-2 text-gray-500">&gt;</span>
+      </li>
 
-            <section className="py-20 font-poppins dark:bg-gray-800">
-                <div className="max-w-6xl px-4 mx-auto">
-                    <div className="flex flex-wrap mb-24 -mx-4">
-                        <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
-                            <div className="sticky top-0 z-50 overflow-hidden ">
-                                <div className="relative mb-6 lg:mb-10 ">
-                                    <a className="absolute left-0 transform lg:ml-2 top-1/2 translate-1/2" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-5 h-5 text-blue-500 bi bi-chevron-left dark:text-blue-200" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
-                                        </svg>
-                                    </a>
-                                    <img className="object-cover w-full lg:h-1/2" src={product?.image} alt="" />
-                                    <a className="absolute right-0 transform lg:mr-2 top-1/2 translate-1/2" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-5 h-5 text-blue-500 bi bi-chevron-right dark:text-blue-200" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-full px-4 md:w-1/2">
-                            <div className="lg:pl-20">
-                                <div className="mb-6 ">
-                                    <span className="text-red-500 dark:text-red-200">{product?.categoryName}</span>
-                                    <h2 className="max-w-xl mt-2 mb-4 text-5xl font-bold md:text-6xl font-heading dark:text-gray-300">
-                                        {product?.name}
-                                    </h2>
+      <li className="text-gray-500">Big italian sofa</li>
+    </ul>
+  </nav>
+            <section className="container mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
+                <div className="container mx-auto px-4">
+                    <img className="w-full" src={product?.image} alt="Sofa image" />
 
-                                </div>
-                                <div className="mt-6 ">
-                                    <div className="flex flex-wrap items-center">
-                                        <span className="mr-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-4 text-gray-700 dark:text-gray-400 bi bi-bag" viewBox="0 0 16 16">
-                                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"></path>
-                                            </svg>
-                                        </span>
-                                        <h2 className="text-lg font-bold text-gray-700 dark:text-gray-400">Pickup</h2>
-                                    </div>
-                                    <div className="px-7">
-                                        <a className="mb-2 text-sm text-blue-400 dark:text-blue-200" href="#">Check availability</a>
-                                    </div>
-                                    <div className="w-32 mb-8 ">
-                                        <label
-                                            className="w-full pb-1 text-xl font-semibold text-gray-700 border-b border-blue-300 dark:border-gray-600 dark:text-gray-400">Quantity</label>
-                                        <div className="relative flex flex-row w-full h-10 mt-6 bg-transparent rounded-lg">
-                                            <button
-                                                className="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-400">
-                                                <span className="m-auto text-2xl font-thin">-</span>
-                                            </button>
-                                            <input type="number"
-                                                onChange={onHandleChangeInputQuantity}
-                                                className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-300 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
-                                                placeholder='1' defaultValue="1" min="1" max='100' />
-                                            <button
-                                                className="w-20 h-full text-gray-600 bg-gray-300 rounded-r outline-none cursor-pointer dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-400">
-                                                <span className="m-auto text-2xl font-thin">+</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="mt-6 ">
-                                    <button onClick={() => addToCart(product?._id)} className="w-full px-4 py-2 font-bold text-white bg-blue-400 lg:w-96 hover:bg-blue-500">
-                                        Add to cart
-                                    </button>
-                                </div>
-                                <div className="flex items-center mt-6 ">
-                                    <div>
-                                        <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">Still deciding?
-                                        </h2>
-                                        <p className="mb-2 text-sm dark:text-gray-400"> Add this item to a list and easily come back
-                                            to it later </p>
-                                    </div>
-                                    <span className="ml-6">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-6 h-6 text-blue-500 cursor-pointer hover:text-blue-600 dark:hover:text-blue-300 bi bi-bookmark dark:text-gray-400" viewBox="0 0 16 16">
-                                            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"></path>
-                                        </svg></span>
-                                </div>
-                            </div>
-                        </div>
+                    {/* Desciption image */}
+                    {/* <div className="mt-3 grid grid-cols-4 gap-4">
                         <div>
-                            <h2 className='text-2xl font-bold mb-4'>Description</h2>
-                            <p>{product?.desc}</p>
+                            <img className="cursor-pointer" src="./assets/images/kitchen.png" alt="kitchen image" />
                         </div>
+
+                        <div>
+                            <img className="cursor-pointer" src="./assets/images/living-room.png" alt="kitchen image" />
+                        </div>
+
+                        <div>
+                            <img className="cursor-pointer" src="./assets/images/outdoors.png" alt="kitchen image" />
+                        </div>
+
+                        <div>
+                            <img className="cursor-pointer" src="./assets/images/product-chair.png"
+                                alt="kitchen image" />
+                        </div>
+                    </div> */}
+                </div>
+
+                <div className="mx-auto px-5 lg:px-5">
+                    <h2 className="pt-3 text-2xl font-bold lg:pt-0">BIG ITALIAN SOFA</h2>
+                    <div className="mt-1">
+                        <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                className="h-4 w-4 text-yellow-400">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                className="h-4 w-4 text-yellow-400">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                className="h-4 w-4 text-yellow-400">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                className="h-4 w-4 text-yellow-400">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                className="h-4 w-4 text-gray-200">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <p className="ml-3 text-sm text-gray-400">(150 reviews)</p>
+                        </div>
+                    </div>
+
+                    <p className="mt-5 font-bold">
+                        Availability: <span className="text-green-600">In Stock</span>
+                    </p>
+                    <p className="font-bold">Brand: <span className="font-normal">Apex</span></p>
+                    <p className="font-bold">
+                        Cathegory: <span className="font-normal">Sofa</span>
+                    </p>
+                    <p className="font-bold">SKU: <span className="font-normal">BE45VGTRK</span></p>
+
+                    <p className="mt-4 text-4xl font-bold text-violet-900">
+                        $450 <span className="text-xs text-gray-400 line-through">$550</span>
+                    </p>
+
+                    <p className="pt-5 text-sm leading-5 text-gray-500">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
+                        exercitationem voluptate sint eius ea assumenda provident eos
+                        repellendus qui neque! Velit ratione illo maiores voluptates commodi
+                        eaque illum, laudantium non!
+                    </p>
+
+                    <div className="mt-6">
+                        <p className="pb-2 text-xs text-gray-500">Size</p>
+
+                        <div className="flex gap-1">
+                            <div
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                XS
+                            </div>
+                            <div
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                S
+                            </div>
+                            <div
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                M
+                            </div>
+
+                            <div
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                L
+                            </div>
+
+                            <div
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                XL
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-6">
+                        <p className="pb-2 text-xs text-gray-500">Color</p>
+
+                        <div className="flex gap-1">
+                            <div
+                                className="h-8 w-8 cursor-pointer border border-white bg-gray-600 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                            </div>
+                            <div
+                                className="h-8 w-8 cursor-pointer border border-white bg-violet-900 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                            </div>
+                            <div
+                                className="h-8 w-8 cursor-pointer border border-white bg-red-900 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-6">
+                        <p className="pb-2 text-xs text-gray-500">Quantity</p>
+
+                        <div className="flex">
+                            <button
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                &minus;
+                            </button>
+                            <div
+                                className="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
+                                1
+                            </div>
+                            <button
+                                className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                                &#43;
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="mt-7 flex flex-row items-center gap-6">
+                        <button onClick={() => addToCart(product?._id)}
+                            className="flex h-12 w-1/3 items-center justify-center bg-violet-900 text-white duration-100 hover:bg-blue-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" className="mr-3 h-4 w-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+
+                            Add to cart
+                        </button>
+                        <button
+                            className="flex h-12 w-1/3 items-center justify-center bg-amber-400 duration-100 hover:bg-yellow-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" className="mr-3 h-4 w-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+
+                            Wishlist
+                        </button>
                     </div>
                 </div>
             </section>
+
         </div>
     )
 }
