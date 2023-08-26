@@ -9,6 +9,7 @@ import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import ProductDetail from "../components/ProductDetail";
 import HomePage from "../features/user/homepage";
+import ProductCategory from "../components/ProductCategory";
 
 export const router = createBrowserRouter([
   { path: "/", element: <BaseLayout />, children: [
@@ -16,7 +17,8 @@ export const router = createBrowserRouter([
     {path: "cart", element: <Cart />},
     {path: "signin", element: <SignIn />},
     {path: "signup", element: <SignUp />},
-    {path: "product/:id", element: <ProductDetail />}
+    {path: "product/:id", element: <ProductDetail />},
+    {path: "category/:id", element: <ProductCategory />},
     
 ] },
   {

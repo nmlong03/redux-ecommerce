@@ -1,6 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import { IProduct } from '../interfaces/product';
-import { pause } from '../untils/pause';
 import { ICategory } from '../interfaces/category';
 const CategoryApi = createApi({
     reducerPath: 'category',

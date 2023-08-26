@@ -3,7 +3,7 @@ import { IProduct } from "../../interfaces/product"
 import { useAddToCartMutation } from "../../api/cart";
 import { message } from "antd";
 
-const ProductCard = ({products = []}) => {
+const ProductCard = ({products = []}) => {    
     const [addToCart] = useAddToCartMutation();
     const userId = localStorage.getItem("userId");
     const [messageApi, contextHolder] = message.useMessage();

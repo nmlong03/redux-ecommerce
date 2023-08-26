@@ -1,10 +1,11 @@
 import { Skeleton } from "antd";
 import { useGetProductsQuery } from "../../api/product";
-import { IProduct } from "../../interfaces/product";
 import ProductCard from "../ProductCard";
-const ProductList = () => {
+const ProductList = ({products = []}) => {
+  
   const { data: productData, isLoading } = useGetProductsQuery();
-
+  const productsList = productData?.data;
+  
   return (
     <div>
 
@@ -16,7 +17,7 @@ const ProductList = () => {
             </h2>
           </div>
           <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-16">
-            {isLoading ? (<Skeleton />) : (<ProductCard products={productData?.data} />)}
+            {isLoading ? (<Skeleton />) : (<ProductCard products={!products.length ? productsList : products} />)}
           </div>
         </div>
       </section>
